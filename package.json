@@ -1,0 +1,16 @@
+{
+  "name": "jigsaw-puzzle-game",
+  "version": "1.0.0",
+  "description": "A fully functional web-based jigsaw puzzle game",
+  "main": "index.html",
+  "scripts": {
+    "generate-images": "node generate-placeholders.js",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": ["puzzle", "jigsaw", "game", "html5"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "canvas": "^2.11.2"
+  }
+}

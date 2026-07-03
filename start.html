@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle - Quick Start</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h1 {
+            color: #667eea;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .emoji {
+            font-size: 80px;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+        .button-container {
+            margin: 40px 0;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #333;
+            border: 2px solid #667eea;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+        .info-box strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+        }
+        ul {
+            text-align: left;
+            color: #666;
+        }
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🧩</div>
+        <h1>Jigsaw Puzzle Game</h1>
+        <p>Welcome! A fully functional jigsaw puzzle game with multiple difficulty levels and beautiful UI.</p>
+
+        <div class="button-container">
+            <a href="index.html" class="btn btn-primary">🎮 Play Now</a>
+            <a href="setup.html" class="btn btn-secondary">⚙️ Setup Guide</a>
+        </div>
+
+        <div class="info-box">
+            <strong>✨ Features:</strong>
+            <ul>
+                <li>3 difficulty levels (42, 56, 63 pieces)</li>
+                <li>Drag & drop interface with smooth animations</li>
+                <li>Smart piece snapping</li>
+                <li>Optional piece rotation for extra challenge</li>
+                <li>Multiple background options</li>
+                <li>Preview and solution buttons</li>
+                <li>Mobile-friendly touch controls</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>🖼️ Custom Images:</strong>
+            <p>This game includes placeholder images. To use your own images:</p>
+            <ol>
+                <li>Replace <code>images/casino.jpg</code> with your first image</li>
+                <li>Replace <code>images/graveyard.jpg</code> with your second image</li>
+                <li>Or use the <a href="setup.html">Setup Guide</a> for detailed instructions</li>
+            </ol>
+        </div>
+
+        <p style="margin-top: 40px; color: #999; font-size: 14px;">
+            Built with HTML5, CSS3, and JavaScript
+        </p>
+    </div>
+</body>
+</html>

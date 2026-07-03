@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="header">
+            <div class="header-left">
+                <button class="icon-btn menu-btn" id="menuBtn">☰</button>
+            </div>
+            <div class="header-center">
+                <h1>Jigsaw Puzzle</h1>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn" id="shuffleBtn">🔀</button>
+                <button class="icon-btn" id="previewBtn">🖼️</button>
+                <button class="icon-btn" id="settingsBtn">⚙️</button>
+                <button class="icon-btn" id="helpBtn">❓</button>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="puzzle-container">
+                <canvas id="puzzleCanvas"></canvas>
+            </div>
+            
+            <div class="piece-tray-container">
+                <div class="piece-tray" id="pieceTray">
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="control-btn" id="newGameBtn">New Game</button>
+            <button class="control-btn" id="solveBtn">Show Solution</button>
+        </div>
+    </div>
+
+    <div class="modal" id="settingsModal">
+        <div class="modal-content settings-modal">
+            <button class="close-btn" id="closeSettings">&times;</button>
+            <h2>Puzzle Settings</h2>
+            
+            <div class="settings-tabs">
+                <button class="tab-btn active" data-tab="size">SIZE</button>
+                <button class="tab-btn" data-tab="background">BACKGROUND</button>
+                <button class="tab-btn" data-tab="rotation">ROTATION</button>
+            </div>
+
+            <div class="tab-content active" id="sizeTab">
+                <div class="difficulty-options">
+                    <div class="difficulty-option" data-pieces="42">
+                        <div class="piece-count">42</div>
+                        <div class="piece-label">pieces</div>
+                    </div>
+                    <div class="difficulty-option active" data-pieces="56">
+                        <div class="piece-count highlight">56</div>
+                        <div class="piece-label">pieces</div>
+                    </div>
+                    <div class="difficulty-option" data-pieces="63">
+                        <div class="piece-count">63</div>
+                        <div class="piece-label">pieces</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="backgroundTab">
+                <div class="background-options">
+                    <button class="bg-option" data-bg="dark">Dark</button>
+                    <button class="bg-option active" data-bg="light">Light</button>
+                    <button class="bg-option" data-bg="grid">Grid</button>
+                </div>
+            </div>
+
+            <div class="tab-content" id="rotationTab">
+                <div class="rotation-options">
+                    <label class="switch">
+                        <input type="checkbox" id="rotationToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Enable piece rotation</span>
+                </div>
+            </div>
+
+            <button class="play-btn" id="playBtn">Play</button>
+        </div>
+    </div>
+
+    <div class="modal" id="imageSelectModal">
+        <div class="modal-content image-select-modal">
+            <button class="close-btn" id="closeImageSelect">&times;</button>
+            <h2>Select Puzzle Image</h2>
+            <div class="image-grid">
+                <div class="image-option" data-image="casino">
+                    <img src="images/casino.jpg" alt="Casino">
+                    <div class="image-label">Crypto Casino</div>
+                </div>
+                <div class="image-option" data-image="graveyard">
+                    <img src="images/graveyard.jpg" alt="Graveyard">
+                    <div class="image-label">Crypto Graveyard</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="previewModal">
+        <div class="modal-content preview-modal">
+            <button class="close-btn" id="closePreview">&times;</button>
+            <img id="previewImage" src="" alt="Preview">
+        </div>
+    </div>
+
+    <div class="completion-overlay" id="completionOverlay">
+        <div class="completion-message">
+            <h2>🎉 Puzzle Complete! 🎉</h2>
+            <p>Congratulations!</p>
+            <button class="play-btn" id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

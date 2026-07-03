@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Setup Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: white;
+            color: #333;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .step {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .step strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        code {
+            background: #2d3748;
+            color: #fbbf24;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #856404;
+        }
+        .canvas-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            max-width: 100%;
+            margin: 10px 0;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px 5px;
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧩 Jigsaw Puzzle Setup Guide</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Important:</strong> You need to add your puzzle images to get started!
+        </div>
+
+        <h2>Quick Setup</h2>
+        
+        <div class="step">
+            <strong>Step 1: Prepare Your Images</strong>
+            Save your two puzzle images (the crypto casino and graveyard scenes) as:
+            <ul>
+                <li><code>images/casino.jpg</code></li>
+                <li><code>images/graveyard.jpg</code></li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <strong>Step 2: Image Requirements</strong>
+            <ul>
+                <li>Format: JPG or PNG</li>
+                <li>Recommended size: 1920x1080 or higher</li>
+                <li>Aspect ratio: 16:9 works best</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <strong>Step 3: Launch the Game</strong>
+            Open <code>index.html</code> in your web browser
+        </div>
+
+        <h2>Using Placeholder Images (For Testing)</h2>
+        <p>If you don't have the images yet, you can generate placeholder images below:</p>
+
+        <div class="canvas-container">
+            <h3>Casino Placeholder</h3>
+            <canvas id="casinoCanvas" width="1920" height="1080"></canvas>
+            <br>
+            <button onclick="downloadCanvas('casinoCanvas', 'casino.jpg')">Download Casino Image</button>
+        </div>
+
+        <div class="canvas-container">
+            <h3>Graveyard Placeholder</h3>
+            <canvas id="graveyardCanvas" width="1920" height="1080"></canvas>
+            <br>
+            <button onclick="downloadCanvas('graveyardCanvas', 'graveyard.jpg')">Download Graveyard Image</button>
+        </div>
+
+        <div class="step">
+            <strong>After Downloading:</strong>
+            Move the downloaded images to the <code>images/</code> folder in your project directory.
+        </div>
+    </div>
+
+    <script>
+        function generatePlaceholder(canvasId, title, colors) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+            gradient.addColorStop(0, colors[0]);
+            gradient.addColorStop(1, colors[1]);
+            
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            for (let i = 0; i < 50; i++) {
+                const x = Math.random() * canvas.width;
+                const y = Math.random() * canvas.height;
+                const radius = Math.random() * 100 + 20;
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+            ctx.fillRect(0, canvas.height - 200, canvas.width, 200);
+            
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 120px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(title, canvas.width / 2, canvas.height / 2);
+            
+            ctx.font = '48px Arial';
+            ctx.fillText('Placeholder Image', canvas.width / 2, canvas.height / 2 + 100);
+        }
+
+        function downloadCanvas(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        }
+
+        generatePlaceholder('casinoCanvas', '🎰 CASINO', ['#667eea', '#764ba2']);
+        generatePlaceholder('graveyardCanvas', '🪦 GRAVEYARD', ['#434343', '#000000']);
+    </script>
+</body>
+</html>
